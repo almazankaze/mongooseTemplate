@@ -1,0 +1,13 @@
+///// Starting New Project /////
+
+1. create a client folder and a sever folder
+2. create an index.js file inside server folder
+3. run following command in server folder: npm init -y
+4. run following command in server folder: npm i cors express mongoose nodemon
+5. add the line "type": "module" after main in package.json to enable imports
+6. delete test inside scripts in package.json and add the line "start": "nodemon index.js"
+7. create a .gitignore file and add in files to ignore
+8. run following command in client folder: npx create-react-app ./
+9. run following command in client folder: npm i axios moment react-file-base64 redux redux-thunk
+10. delete src folder in client folder and create a new one. Then create index.js file
+11. create App.js file
