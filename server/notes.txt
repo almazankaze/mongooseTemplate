@@ -8,6 +8,15 @@
 6. delete test inside scripts in package.json and add the line "start": "nodemon index.js"
 7. create a .gitignore file and add in files to ignore
 8. run following command in client folder: npx create-react-app ./
-9. run following command in client folder: npm i axios moment react-file-base64 redux redux-thunk
+9. run following command in client folder: npm i axios moment dotenv redux redux-thunk
 10. delete src folder in client folder and create a new one. Then create index.js file
 11. create App.js file
+12. add a .env in server folder
+13. push to github
+
+///// Create database in mongoDB /////
+
+1. setup cluster and add a user
+2. add ip in network access
+3. click on connect and choose "connect your application"
+4. copy string
