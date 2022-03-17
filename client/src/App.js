@@ -1,9 +1,10 @@
 import React from "react";
+import PostsContainer from "./components/posts/PostsContainer";
 
 const App = () => {
   return (
     <div>
-      <h1>Hello World!</h1>
+      <PostsContainer />
     </div>
   );
 };
