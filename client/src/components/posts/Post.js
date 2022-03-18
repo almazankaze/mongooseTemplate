@@ -2,13 +2,13 @@ import React from "react";
 
 const Post = () => {
   return (
-    <div class="card">
-      <div class="card-content">
-        <div class="card-text">
+    <div className="card">
+      <div className="card-content">
+        <div className="card-text">
           <h2>John Almazan</h2>
           <p>Hello World!</p>
         </div>
-        <div class="card-footer">footer</div>
+        <div className="card-footer">footer</div>
       </div>
     </div>
   );

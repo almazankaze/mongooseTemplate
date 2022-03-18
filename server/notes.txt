@@ -10,9 +10,11 @@
 8. run following command in client folder: npx create-react-app ./
 9. run following command in client folder: npm i axios moment dotenv redux redux-thunk
 10. delete src folder in client folder and create a new one. Then create index.js file
-11. create App.js file
-12. add a .env in server folder
-13. push to github
+11. run following command in client folder: npm install react-redux
+12. add in client package.json, under private, the line: "proxy": "http://localhost:5000"
+13. create App.js file
+14. add a .env in server folder
+15. push to github
 
 ///// Create database in mongoDB /////
 
