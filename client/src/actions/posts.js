@@ -2,6 +2,7 @@ import {
   FETCH_POSTS,
   CREATE_POST,
   UPDATE_POST,
+  DELETE_POST,
 } from "../constants/actionTypes";
 
 import * as api from "../api/index";
@@ -33,5 +34,15 @@ export const updatePost = (id, post) => async (dispatch) => {
     dispatch({ type: UPDATE_POST, payload: data });
   } catch (e) {
     console.log("could not update post");
+  }
+};
+
+export const deletePost = (id) => async (dispatch) => {
+  try {
+    await api.deletePost(id);
+
+    dispatch({ type: DELETE_POST, payload: id });
+  } catch (e) {
+    console.log("could not delete post");
   }
 };

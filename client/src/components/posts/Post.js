@@ -1,10 +1,14 @@
 import React from "react";
 import moment from "moment";
+import { useDispatch } from "react-redux";
+import { deletePost } from "../../actions/posts";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 
 const Post = ({ post, setCurrentId }) => {
+  const dispatch = useDispatch();
+
   return (
     <div className="card">
       <div className="card-content">
@@ -14,7 +18,10 @@ const Post = ({ post, setCurrentId }) => {
           <p>{post.message}</p>
         </div>
         <div className="card-footer">
-          <IconButton aria-label="delete">
+          <IconButton
+            aria-label="delete"
+            onClick={() => dispatch(deletePost(post._id))}
+          >
             <DeleteIcon sx={{ fontSize: 32, color: "red" }} />
           </IconButton>
           <IconButton aria-label="edit" onClick={() => setCurrentId(post._id)}>
