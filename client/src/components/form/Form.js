@@ -17,8 +17,15 @@ const Form = () => {
     e.preventDefault();
 
     dispatch(createPost(postData, { ...postData }));
+    clear();
   };
-  const clear = () => {};
+  const clear = () => {
+    setPostData({
+      firstName: "",
+      lastName: "",
+      message: "",
+    });
+  };
   return (
     <div className="form-container">
       <div className="post-form">
@@ -40,7 +47,7 @@ const Form = () => {
               type="text"
               placeholder="Last Name"
               className="post-input"
-              value={postData.lasttName}
+              value={postData.lastName}
               onChange={(e) =>
                 setPostData({ ...postData, lastName: e.target.value })
               }

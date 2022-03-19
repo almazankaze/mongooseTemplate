@@ -5,13 +5,14 @@ import "./posts.css";
 
 const PostsContainer = () => {
   const posts = useSelector((state) => state.posts);
-  console.log(posts);
-  return (
+  return !posts ? (
+    <div></div>
+  ) : (
     <div className="cards-container">
       <div className="cards">
-        <Post />
-        <Post />
-        <Post />
+        {posts.map((post) => (
+          <Post key={post._id} post={post} />
+        ))}
       </div>
     </div>
   );
