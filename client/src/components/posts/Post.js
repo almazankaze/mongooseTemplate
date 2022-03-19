@@ -4,7 +4,7 @@ import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 
-const Post = ({ post }) => {
+const Post = ({ post, setCurrentId }) => {
   return (
     <div className="card">
       <div className="card-content">
@@ -17,7 +17,7 @@ const Post = ({ post }) => {
           <IconButton aria-label="delete">
             <DeleteIcon sx={{ fontSize: 32, color: "red" }} />
           </IconButton>
-          <IconButton aria-label="edit">
+          <IconButton aria-label="edit" onClick={() => setCurrentId(post._id)}>
             <EditIcon sx={{ fontSize: 32, color: "blue" }} />
           </IconButton>
         </div>

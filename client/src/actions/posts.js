@@ -1,4 +1,8 @@
-import { FETCH_POSTS, CREATE_POST } from "../constants/actionTypes";
+import {
+  FETCH_POSTS,
+  CREATE_POST,
+  UPDATE_POST,
+} from "../constants/actionTypes";
 
 import * as api from "../api/index";
 
@@ -19,5 +23,15 @@ export const createPost = (post) => async (dispatch) => {
     dispatch({ type: CREATE_POST, payload: data });
   } catch (e) {
     console.log("could not create post");
+  }
+};
+
+export const updatePost = (id, post) => async (dispatch) => {
+  try {
+    const { data } = await api.updatePost(id, post);
+
+    dispatch({ type: UPDATE_POST, payload: data });
+  } catch (e) {
+    console.log("could not update post");
   }
 };

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { createPost } from "../../actions/posts";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createPost, updatePost } from "../../actions/posts";
 import "./form.css";
 
-const Form = () => {
+const Form = ({ currentId, setCurrentId }) => {
   const [showError, setShowError] = useState(false);
   const [postData, setPostData] = useState({
     firstName: "",
@@ -11,15 +11,29 @@ const Form = () => {
     message: "",
   });
 
+  const post = useSelector((state) =>
+    currentId ? state.posts.find((p) => p._id === currentId) : null
+  );
+
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (post) setPostData(post);
+  }, [post]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(createPost(postData, { ...postData }));
+    if (currentId) {
+      dispatch(updatePost(currentId, postData));
+    } else {
+      dispatch(createPost(postData, { ...postData }));
+    }
+
     clear();
   };
   const clear = () => {
+    setCurrentId(null);
     setPostData({
       firstName: "",
       lastName: "",
@@ -29,6 +43,7 @@ const Form = () => {
   return (
     <div className="form-container">
       <div className="post-form">
+        <h2>{currentId ? "Edit this post" : "Create a post"}</h2>
         <form autoComplete="off" noValidate onSubmit={handleSubmit}>
           <div className="input-container">
             <input
